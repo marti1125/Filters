@@ -1,0 +1,59 @@
+body{
+	background: linear-gradient(45deg, #92baac 45px, transparent 45px)64px 64px,
+				linear-gradient(45deg, #92baac 45px, transparent 45px,transparent 91px, #e1ebbd 91px, #e1ebbd 135px, transparent 135px),
+				linear-gradient(-45deg, #92baac 23px, transparent 23px, transparent 68px,#92baac 68px,#92baac 113px,transparent 113px,transparent 158px,#92baac 158px);
+	background-color:#e1ebbd;
+	background-size: 128px 128px;
+	text-align: center;
+	font-family: helvetica;
+}
+
+.center {
+	width: 191px;
+	height: 33px;
+	margin: auto;
+
+}
+
+.info {
+	color: rgb(238, 85, 0);
+	text-shadow: 0px 2px white;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.title{
+    color: rgb(238, 85, 0);
+	text-shadow: 0px 2px white;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.title2 {
+	color: rgb(238, 85, 0);
+	text-shadow: 0px 2px white;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+
+/* boton upload effect */
+.SI-FILES-STYLIZED label.cabinet
+{
+	width: 191px;
+	height: 33px;
+	background: url(../img/cfile.png) 0 0 no-repeat;
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.SI-FILES-STYLIZED label.cabinet input.file
+{
+	position: relative;
+	height: 100%;
+	width: auto;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
