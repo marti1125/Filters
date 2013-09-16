@@ -36,6 +36,10 @@ body{
 	font-weight: bold;
 }
 
+#show-picture {
+	width: 100px;
+	height: 100px;
+} 
 
 /* boton upload effect */
 .SI-FILES-STYLIZED label.cabinet
