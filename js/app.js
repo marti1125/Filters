@@ -1,46 +1,28 @@
 (function () {
-	var takePicture = document.querySelector("#take-picture"),
-		showPicture = document.querySelector("#show-picture");
 
-	if(takePicture && showPicture){
-		// Set events
-		takePicture.onchange = function (event) {
-			// Get a reference to the taken picture or chosen file
-			var files = event.target.files,
-				file;
-			if(files && files.length > 0){
-				file = files[0];
-				try {
-					// Get window.URL object
-					var URL = window.URL || window.webkitURL;
+    var pickImage = document.querySelector("#pick-image");
+    var effectImage = document.querySelector("#effectSelected");
+    var img = document.querySelector("#image-presenter");
 
-					// Create ObjectURL
-					var imgURL = URL.createObjectURL(file);
+    pickImage.onclick = function () {
+        var pick = new MozActivity({
+            name: "pick",
+            data: {
+                type: ["image/png", "image/jpg", "image/jpeg"]
+            }
+        });
 
-					// Set img src to ObjectURL
-					showPicture.src = imgURL;
+        pick.onsuccess = function () {            
+            img.src = window.URL.createObjectURL(this.result.blob);            
+        };
 
-					// Revoke ObjectURL
-					URL.revokeObjectURL(imgURL);
-				}
-				catch (e) {
-					try {
-						// Fallback if createObjectURL is not supported
-						var fileReader = new FileReader();
-						fileReader.onload = function (event) {
-							showPicture.src = event.target.result;
-						};
-						fileReader.readAsDataURL(file);
-					}
-					catch (e) {
-						// Display error message
-						var error = document.querySelector("#error");
-						if(error){
-							error.innerHTML = "Neither createObjectURL or FileReader are supported";
-						}
-					}
-				}
-			}
-		};
-	}
+        pick.onerror = function () {
+            alert("Can't view the image!");
+        };
+    }
+
+    effectImage.onclick = function () {
+    	var draw = SVG('canvas').size('100%', '100%')    	
+    }
+
 })();

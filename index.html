@@ -7,24 +7,15 @@
 </head>
 <body>
 	<div id="content">
-		<h1 class="title">Open Effects</h1>
-		<p class="info">Camera API - Project</p>
-		<p class="center">
-		<label class="cabinet"> 
-			<input class="file" type="file" id="take-picture" accept="image/*"> 
-		</label>
-		</p>
-		<h2 class="title2">Preview: </h2>
-		<p>
-			<img src="about:blank" alt="" id="show-picture">
-		</p>
-		<p id="error"></p>
-		<a href="#"><img src="img/select.png"/></a>
-	</div>
-	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/si.files.js"></script>
-	<script type="text/javascript" language="javascript">
-	SI.Files.stylizeAll();
-	</script>
+		<h1 class="title">Open Effects</h1>			
+
+        <button id="pick-image">Pick image</button>
+        <br/><br/>
+        <img id="image-presenter" src=""/>		
+
+		<script type="text/javascript" src="js/svg.min.js"></script>
+		<script type="text/javascript" src="js/svg.filter.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>		
+	</div>	
 </body>
 </html>
