@@ -1,10 +1,10 @@
-(function () {
+document.addEventListener('DOMComponentsLoaded', function(){
 
-    var pickImage = document.querySelector("#pick-image");
-    var effectImage = document.querySelector("#effectSelected");
+    var pickImage = document.getElementById("pick-image");
+    var effectImage = document.getElementById("effectSelected");
     var img = document.querySelector("#image-presenter");
 
-    pickImage.onclick = function () {
+    pickImage.addEventListener("click", function(e){
         var pick = new MozActivity({
             name: "pick",
             data: {
@@ -19,10 +19,10 @@
         pick.onerror = function () {
             alert("Can't view the image!");
         };
-    }
+    });
 
-    effectImage.onclick = function () {
+    effectImage.addEventListener("click", function(e){
     	var draw = SVG('canvas').size('100%', '100%')    	
-    }
+    });
 
-})();
+});
