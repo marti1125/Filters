@@ -1,6 +1,6 @@
 {
-  "name": "Effects",
-  "description": "effects",
+  "name": "Filters",
+  "description": "Filters",
   "launch_path": "/index.html",
   "icons": {
     "60": "/img/60.png",
@@ -10,12 +10,12 @@
   "orientation": ["portrait"],
   "developer": {
     "name": "Willy Aguirre",
-    "url": "https://github.com/marti1125/open_effects"
+    "url": "https://github.com/marti1125/filters"
   },
   "locales": {
     "en-US": {
-      "name": "effects",
-      "description": "effects"
+      "name": "Filters",
+      "description": "Filters"
     }
   },
   "default_locale": "es"

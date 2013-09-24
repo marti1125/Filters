@@ -1,3 +1,3 @@
-Open Effects :D
+Filters
 
 Author: Willy Aguirre

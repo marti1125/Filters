@@ -22,7 +22,11 @@ document.addEventListener('DOMComponentsLoaded', function(){
     });
 
     effectImage.addEventListener("click", function(e){
-    	var draw = SVG('canvas').size('100%', '100%')    	
+    	var draw = SVG('canvas').size('100%', '100%')
+        var image = draw.image(img.src).size(300, 300)
+        image.filter(function(add) {
+            add.gaussianBlur('30')
+        })
     });
 
 });
