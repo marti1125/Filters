@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta content="width=device-width, minimumscale=1.0, maximum-scale=1.0" name="viewport"></meta>
-	<title>Open Effects</title>
+	<title>Filters</title>
 	<link rel="stylesheet" type="text/css" href="css/brick-1.0beta7.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script type="text/javascript" src="js/brick-1.0beta7.js"></script>
@@ -24,13 +24,16 @@
        		<br/><br/>
         	<img id="image-presenter" src=""/>
         	<br/>
-        	<x-iconbutton id="effectSelected" icon-anchor="left" src="img/60.png">
-			    Filters
-			</x-iconbutton>
-			<br/>
         	<div id="canvas">
 			    
 			</div>
+        	<x-iconbutton id="gaussianBlur" icon-anchor="left">
+			    Gaussian blur
+			</x-iconbutton>
+			<x-iconbutton id="horizontalBlur" icon-anchor="left">
+			    Horizontal blur
+			</x-iconbutton>				
+        	
 	    </section>	      
 	</x-layout>	
 </body>
