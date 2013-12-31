@@ -12,15 +12,6 @@ body{
 x-layout {
 	border: 0px;
 }
-x-layout > header, x-layout > footer{
-    padding: 0;
-    background-color: #F25202;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    height: 1.5rem;
-    padding: 0.5rem;
-}
 x-layout>section{
 	height: auto;	
 }
@@ -35,6 +26,6 @@ x-layout>section{
 .i {
   filter: url(invert.svg#matrix-invert);
 }
-#invertColor {
+.btn {
 	height: 50px;
 }

@@ -4,30 +4,28 @@
 	<meta charset="utf-8"/>
 	<meta content="width=device-width, minimumscale=1.0, maximum-scale=1.0" name="viewport"></meta>
 	<title>Filters</title>
-	<link rel="stylesheet" type="text/css" href="css/brick-1.0beta7.css">
+	<link rel="stylesheet" type="text/css" href="css/brick-0.9.2.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<script type="text/javascript" src="js/brick-1.0beta7.js"></script>
+	<script type="text/javascript" src="js/brick-0.9.2.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-	<x-layout>
-	    <header>
-	        Effects
-	    </header>	    
+	<x-layout>	    	    
 	    <section>
 	    	<br/>
-	    	<x-iconbutton id="pick-image" icon-anchor="left" src="img/60.png">
+	    	<button id="pick-image" class="btn">
 			    Pick image
-			</x-iconbutton>			          
-       		<br/><br/>
+			</button>			          
+       		<br/>
         	<img id="image-presenter" src=""/>
-        	<br/>
-        	<div id="canvas">
-			    
-			</div>        				
-        	<x-iconbutton id="invertColor" icon-anchor="left">
+        	<br/>      				
+        	<button id="invertColor" class="btn">
 			    Invert Color
-			</x-iconbutton>
+					</button>
+					<br/>
+					<button id="save" class="btn">
+			    Save
+					</button>
 	    </section>	      
 	</x-layout>	
 </body>
