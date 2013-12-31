@@ -18,5 +18,19 @@
       "description": "Filters"
     }
   },
-  "default_locale": "en-US"
+  "default_locale": "en-US",
+  "permissions": {
+    "device-storage:sdcard":{
+      "access": "readwrite",
+      "description": "save image in sdcard"
+    },
+    "device-storage:pictures":{
+      "access": "readwrite",
+      "description": "save image in gallery"
+    },
+    "desktop-notification": {
+      "description" : "Show notifications"
+    }
+  },
+  "type": "privileged"
 }
