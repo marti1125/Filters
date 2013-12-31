@@ -25,10 +25,16 @@ x-layout>section{
 	height: auto;	
 }
 #image-presenter {
-	width: 200px;
-	height: 200px;
+	width: 100px;
+	height: 100px;
 }
 #canvas {
-	width: 200px;
-	height: 200px;
+	width: 100px;
+	height: 100px;
+}
+.i {
+  filter: url(invert.svg#matrix-invert);
+}
+#invertColor {
+	height: 50px;
 }

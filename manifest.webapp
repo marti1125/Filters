@@ -4,7 +4,7 @@
   "launch_path": "/index.html",
   "icons": {
     "60": "/img/60.png",
-	"120": "/img/120.png",
+	  "120": "/img/120.png",
     "128": "/img/128.png"
   },
   "orientation": ["portrait"],
@@ -18,5 +18,5 @@
       "description": "Filters"
     }
   },
-  "default_locale": "es"
+  "default_locale": "en-US"
 }
