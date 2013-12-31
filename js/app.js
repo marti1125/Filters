@@ -6,6 +6,11 @@ document.addEventListener('DOMComponentsLoaded', function(){
   var invertColor = document.getElementById("invertColor");
   var img = document.querySelector("#image-presenter");
 
+  var notificationPickImage = navigator.mozNotification.createNotification(
+                "Image",
+                "Please select an image"
+            );
+
   pickImage.addEventListener("click", function(e){
       var pick = new MozActivity({
           name: "pick",
@@ -15,11 +20,11 @@ document.addEventListener('DOMComponentsLoaded', function(){
       });
 
       pick.onsuccess = function () {            
-          img.src = window.URL.createObjectURL(this.result.blob);            
+        img.src = window.URL.createObjectURL(this.result.blob);            
       };
 
       pick.onerror = function () {
-          alert("Can't view the image!");
+        notificationPickImage.show();
       };
   });    
 
