@@ -28,9 +28,6 @@ x-layout>section{
 	width: 100px;
 	height: 100px;
 }
-.i {
-  filter: url(invert.svg#matrix-invert);
-}
 .btn {
 	height: 50px;
 	width: 32%;
@@ -39,7 +36,7 @@ x-layout>section{
 	text-align: center;
 }
 #imageToSave {
-	display: none;
+	/*display: none;*/
 }
 
 x-flipbox {

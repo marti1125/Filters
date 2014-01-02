@@ -15,7 +15,7 @@ document.addEventListener('DOMComponentsLoaded', function(){
   var matrixInvert = document.getElementById("matrixInvert");
   var save = document.getElementById("save");
   var img = document.querySelector("#image-presenter");
-  var flipBox = document.getElementById("flipBox");  
+  var flipBox = document.getElementById("flipBox");
 
   var notificationPickImage = navigator.mozNotification.createNotification(
                 "Pick Image",
@@ -34,8 +34,8 @@ document.addEventListener('DOMComponentsLoaded', function(){
 
   filters.addEventListener("click", function(e){
     if(img.getAttribute("src") != ""){
-      flipBox.toggle(); 
-    } 
+      flipBox.toggle();
+    }
   });
 
   pickImage.addEventListener("click", function(e){
@@ -46,41 +46,39 @@ document.addEventListener('DOMComponentsLoaded', function(){
           }
       });
 
-      pick.onsuccess = function () {            
-        img.src = window.URL.createObjectURL(this.result.blob);            
+      pick.onsuccess = function () {
+        img.src = window.URL.createObjectURL(this.result.blob);
       };
 
       pick.onerror = function () {
         notificationPickImage.show();
       };
-  });    
+  });
 
-  save.addEventListener("click", function(e){ 
+  save.addEventListener("click", function(e){
       var randomImage = randomUUID();
 
-      var cnv = document.getElementById("imageToSave");
-
-      var ctx=cnv.getContext("2d");
-      var imgToAdd=document.getElementById("image-presenter");
-      ctx.drawImage(imgToAdd,420,380);
-      //cnv.setAttribute("class", "i");
-      cnv.toBlob(function (blob) { 
+      var c=document.getElementById("imageToSave");
+      var ctx=c.getContext("2d");
+      var img=document.getElementById("image-presenter");
+      ctx.drawImage(img,10,10);
+      c.toBlob(function (blob) {
         var pic = navigator.getDeviceStorage("pictures");
               
-        saveAndSend(blob);            
+        saveAndSend(blob);
 
-        function saveAndSend(blob) { 
+        function saveAndSend(blob) {
           var storage = navigator.getDeviceStorage("pictures");
           var request = storage.add(blob, "image-"+randomImage+".png");
 
           request.onsuccess = function () {
-            notificationOnSuccess.show();                                                                                
+            notificationOnSuccess.show();
           }
               
           request.onerror = function () {
-            notificationOnError.show();                                        
-          }            
-        }                                         
+            notificationOnError.show();
+          }
+        }
     
       });
 
@@ -88,8 +86,14 @@ document.addEventListener('DOMComponentsLoaded', function(){
 
   // Filters
   matrixInvert.addEventListener("click", function(e){
-    img.setAttribute("class", "i");
+    Caman('#image-presenter', function () {
+      this.brightness(10);
+      this.contrast(30);
+      this.sepia(60);
+      this.saturation(-30);
+      this.render();
+    });
     flipBox.toggle();
-  });  
+  });
 
 });
