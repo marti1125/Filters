@@ -17,23 +17,18 @@ document.addEventListener('DOMComponentsLoaded', function(){
   var img = document.querySelector("#image-presenter");
   var flipBox = document.getElementById("flipBox");
 
-  var notificationPickImage = navigator.mozNotification.createNotification(
-                "Pick Image",
-                "Please select an image"
-            );
-
   var notificationOnSuccess = navigator.mozNotification.createNotification(
                 "Success",
                 "The image has saved successfully"
             );
 
-        var notificationOnError = navigator.mozNotification.createNotification(
-                "Error",
-                "Can not save the image"
-            );
+  var notificationOnError = navigator.mozNotification.createNotification(
+          "Error",
+          "Can not save the image"
+      );
 
   filters.addEventListener("click", function(e){
-    if(img.getAttribute("src") != ""){
+    if(img.getAttribute("src") != "img/nophoto.svg"){
       flipBox.toggle();
     }
   });
@@ -50,19 +45,20 @@ document.addEventListener('DOMComponentsLoaded', function(){
         img.src = window.URL.createObjectURL(this.result.blob);
       };
 
-      pick.onerror = function () {
-        notificationPickImage.show();
+      pick.onerror = function () {        
       };
   });
 
   save.addEventListener("click", function(e){
+    if(img.getAttribute("src") != "img/nophoto.svg"){
       var randomImage = randomUUID();
-
-      var c=document.getElementById("imageToSave");
-      var ctx=c.getContext("2d");
-      var img=document.getElementById("image-presenter");
-      ctx.drawImage(img,10,10);
-      c.toBlob(function (blob) {
+      var canvas = document.getElementById("imageToSave");
+      var width = canvas.width;
+      var height = canvas.height;
+      var context = canvas.getContext("2d");
+      var imgToAdd = document.getElementById("image-presenter");
+      context.drawImage(imgToAdd,0,0,width,height);
+      canvas.toBlob(function (blob) {
         var pic = navigator.getDeviceStorage("pictures");
               
         saveAndSend(blob);
@@ -81,19 +77,21 @@ document.addEventListener('DOMComponentsLoaded', function(){
         }
     
       });
-
+    }
   });
 
   // Filters
   matrixInvert.addEventListener("click", function(e){
+    
     Caman('#image-presenter', function () {
       this.brightness(10);
       this.contrast(30);
       this.sepia(60);
       this.saturation(-30);
-      this.render();
+      this.render();      
+      flipBox.toggle(); 
     });
-    flipBox.toggle();
+    
   });
 
 });
