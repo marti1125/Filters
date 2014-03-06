@@ -36,7 +36,7 @@ x-layout>section{
 	text-align: center;
 }
 #imageToSave {
-	display: none;
+	/*display: none;*/
 }
 
 x-flipbox {

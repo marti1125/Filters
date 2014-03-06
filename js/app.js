@@ -23,9 +23,9 @@ document.addEventListener('DOMComponentsLoaded', function(){
             );
 
   var notificationOnError = navigator.mozNotification.createNotification(
-          "Error",
-          "Can not save the image"
-      );
+                "Error",
+                "Can not save the image"
+            );
 
   filters.addEventListener("click", function(e){
     if(img.getAttribute("src") != "img/nophoto.svg"){
@@ -41,8 +41,14 @@ document.addEventListener('DOMComponentsLoaded', function(){
           }
       });
 
-      pick.onsuccess = function () {
+      pick.onsuccess = function () {          
         img.src = window.URL.createObjectURL(this.result.blob);
+        var canvas = document.getElementById("imageToSave");
+        var imgT = document.getElementById("image-presenter");
+        var width = canvas.width;
+        var height = canvas.height;
+        var context = canvas.getContext("2d");
+        context.drawImage(imgT,0,0,width,height);
       };
 
       pick.onerror = function () {        
@@ -83,15 +89,14 @@ document.addEventListener('DOMComponentsLoaded', function(){
   // Filters
   matrixInvert.addEventListener("click", function(e){
     
-    Caman('#image-presenter', function () {
+    Caman('#imageToSave', function () {
       this.brightness(10);
       this.contrast(30);
       this.sepia(60);
       this.saturation(-30);
-      this.render();      
-      flipBox.toggle(); 
+      this.render(); 
     });
-    
+    flipBox.toggle(); 
   });
 
 });
