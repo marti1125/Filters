@@ -8,14 +8,22 @@ function randomUUID() {
   return s.join('');
 }
 
-document.addEventListener('DOMComponentsLoaded', function(){
+/*window.addEventListener('WebComponentsReady',function(){
+  var toggleButton = document.getElementById('filters');
+  
+  toggleButton.addEventListener('click', function() {
+    flipbox.toggle();
+  });
+});*/
+
+document.addEventListener('WebComponentsReady', function(){
 
   var pickImage = document.getElementById("pick-image");
   var filters = document.getElementById("filters");
   var matrixInvert = document.getElementById("matrixInvert");
   var save = document.getElementById("save");
   var img = document.querySelector("#image-presenter");
-  var flipBox = document.getElementById("flipBox");
+  var flipbox = document.querySelector('brick-flipbox');
 
   var notificationOnSuccess = navigator.mozNotification.createNotification(
                 "Success",
@@ -28,9 +36,10 @@ document.addEventListener('DOMComponentsLoaded', function(){
             );
 
   filters.addEventListener("click", function(e){
-    if(img.getAttribute("src") != "img/nophoto.svg"){
-      flipBox.toggle();
-    }
+    flipbox.toggle();
+    /*if(img.getAttribute("src") != "img/nophoto.svg"){
+      flipbox.toggle();
+    }*/
   });
 
   pickImage.addEventListener("click", function(e){
@@ -40,7 +49,6 @@ document.addEventListener('DOMComponentsLoaded', function(){
               type: ["image/png", "image/jpg", "image/jpeg"]
           }
       });
-
       pick.onsuccess = function () {          
         img.src = window.URL.createObjectURL(this.result.blob);
         var canvas = document.getElementById("imageToSave");
@@ -50,13 +58,12 @@ document.addEventListener('DOMComponentsLoaded', function(){
         var context = canvas.getContext("2d");
         context.drawImage(imgT,0,0,width,height);
       };
-
       pick.onerror = function () {        
       };
   });
 
   save.addEventListener("click", function(e){
-    if(img.getAttribute("src") != "img/nophoto.svg"){
+    //if(img.getAttribute("src") != "img/nophoto.svg"){
       var randomImage = randomUUID();
       var canvas = document.getElementById("imageToSave");
       var width = canvas.width;
@@ -83,20 +90,26 @@ document.addEventListener('DOMComponentsLoaded', function(){
         }
     
       });
-    }
+    //}
   });
 
   // Filters
   matrixInvert.addEventListener("click", function(e){
-    
-    Caman('#imageToSave', function () {
+    Caman('#image-presenter', function () {
       this.brightness(10);
       this.contrast(30);
       this.sepia(60);
       this.saturation(-30);
       this.render(); 
     });
-    flipBox.toggle(); 
+    /*Caman('#imageToSave', function () {
+      this.brightness(10);
+      this.contrast(30);
+      this.sepia(60);
+      this.saturation(-30);
+      this.render(); 
+    });*/
+    flipbox.toggle(); 
   });
 
 });
